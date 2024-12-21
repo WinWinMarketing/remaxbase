@@ -338,7 +338,7 @@
     <!-- HEADER -->
     <header>
       <div class="logo">
-        <img src="https://i.ibb.co/tzB4681/Untitled-design-1.png" alt="Untitled-design-1"></a>
+        <a href="https://ibb.co/hcsyNDT"><img src="https://i.ibb.co/tzB4681/Untitled-design-1.png" alt="Untitled-design-1"></a>
         <strong>RE/MAX Community</strong>
       </div>
       <nav>
@@ -369,14 +369,14 @@
         <div class="home-boxes">
           <!-- Box 1: Content Creation -->
           <div class="home-box" onclick="showSection('contentSection')">
-            <img src="https://i.ibb.co/9hVsPL5/188283363-hand-drawn-content-creator-digital-marketing-vlog-doodle-vector-illustration.jpg" alt="188283363-hand-drawn-content-creator-digital-marketing-vlog-doodle-vector-illustration"></a>
+            <a href="https://ibb.co/dtLGZqY"><img src="https://i.ibb.co/9hVsPL5/188283363-hand-drawn-content-creator-digital-marketing-vlog-doodle-vector-illustration.jpg" alt="188283363-hand-drawn-content-creator-digital-marketing-vlog-doodle-vector-illustration"></a>
             <div class="home-box-title">Content Creation</div>
             <p>Click to go to Content Creation page</p>
           </div>
 
           <!-- Box 2: Documents & Resources -->
           <div class="home-box" onclick="showSection('pdfSection')">
-            <img src="https://i.ibb.co/tPwBSny/54334.webp" alt="54334"></a>
+            <a href="https://ibb.co/qFLBzhb"><img src="https://i.ibb.co/tPwBSny/54334.webp" alt="54334"></a>
             <div class="home-box-title">Documents & Resources</div>
             <p>Click to go to PDF Integration page</p>
           </div>
@@ -454,68 +454,23 @@
     /************************************************************
      * 1) Simple Login
      ************************************************************/
-    <script>
-  const SPREADSHEET_ID = "1qnTMAnSv3WpgcG34V7TBNHfsc3HIusibmK7Yfd_s3Og";
-  const API_KEY = "AIzaSyBQn_5KHBF9-Yz6EVLHbNUjoFGybIerc7U";
+    const VALID_USERNAME = "admin";
+    const VALID_PASSWORD = "password";
 
-  function loadGoogleSheetsAPI(callback) {
-      gapi.load("client", () => {
-          gapi.client
-              .init({
-                  apiKey: API_KEY,
-                  discoveryDocs: ["https://sheets.googleapis.com/$discovery/rest?version=v4"],
-              })
-              .then(callback)
-              .catch((err) => console.error("Google API Init Error:", err));
-      });
-  }
+    function loginUser() {
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+      const loginMsg = document.getElementById("loginMessage");
 
-  async function fetchUsers() {
-      try {
-          const response = await gapi.client.sheets.spreadsheets.values.get({
-              spreadsheetId: SPREADSHEET_ID,
-              range: "Sheet1!A:D",
-          });
-          console.log("Fetched Users:", response.result.values);
-          return response.result.values;
-      } catch (error) {
-          console.error("Error fetching user data:", error);
-          return [];
+      if (user === VALID_USERNAME && pass === VALID_PASSWORD) {
+        // Hide login, show main wrapper
+        document.getElementById("loginSection").style.display = "none";
+        document.getElementById("mainWrapper").style.display = "flex";
+      } else {
+        loginMsg.textContent = "Invalid credentials. Try 'admin' / 'password'.";
       }
-  }
-
-  async function loginUser() {
-      const usernameInput = document.getElementById("username").value;
-      const passwordInput = document.getElementById("password").value;
-      const loginMessage = document.getElementById("loginMessage");
-
-      loginMessage.textContent = "Authenticating...";
-
-      loadGoogleSheetsAPI(async () => {
-          const users = await fetchUsers();
-          const user = users.find((row) => row[1] === usernameInput);
-
-          if (user) {
-              const hashedPassword = user[2];
-              console.log("User Found:", user);
-              const isPasswordValid = await bcrypt.compare(passwordInput, hashedPassword);
-              if (isPasswordValid) {
-                  loginMessage.textContent = "";
-                  document.getElementById("loginSection").style.display = "none";
-                  document.getElementById("mainWrapper").style.display = "block";
-              } else {
-                  loginMessage.textContent = "Invalid password.";
-              }
-          } else {
-              loginMessage.textContent = "Username not found.";
-          }
-      });
-
-      return false; // Prevent page refresh
-  }
-</script>
-
-  
+      return false; // Prevent form submission refresh
+    }
 
     /************************************************************
      * 2) Navigation: Show/Hide Sections
