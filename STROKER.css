@@ -1,0 +1,115 @@
+/* 
+  ========================================
+  COLOR THEME 
+  ========================================
+  Adjust these as you like for the rest of the site.
+*/
+:root {
+    --primary: #0C2749;       /* Deep navy blue */
+    --primary-dark: #2E3F5A;  /* Slightly darker navy blue */
+    --secondary: #485C77;     /* Light navy highlight */
+    --accent: #DC1C2E;        /* RE/MAX Primary Red */
+    --text-light: #FFFFFF;    /* White for light text */
+    --text-dark: #232323;     /* Dark charcoal grey */
+    --bg-light: #ECEDEB;      /* Off white */
+    --bg-white: #FFFFFF;      /* Pure white */
+    --border-gray: #C6CCCD;   /* Yellow Gray (for borders) */
+}
+
+/**************************************
+ * LOGIN SECTION (RED ACCENTS, WHITE TEXT)
+ **************************************/
+#loginSection {
+    background: var(--accent); /* RE/MAX Primary Red */
+    color: var(--text-light);  /* White text */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 300px;
+}
+
+#loginSection input {
+    border: 1px solid var(--primary-dark); /* Darker navy blue */
+    background: var(--bg-white); /* White background */
+    color: var(--text-dark); /* Dark text */
+}
+
+#loginSection button {
+    background: var(--primary-dark); /* Darker navy blue */
+    color: var(--text-light); /* White text */
+}
+
+#loginSection button:hover {
+    background: var(--primary); /* Deep navy blue */
+}
+
+#loginMessage {
+    color: #FFCCCC; /* Light pink for error message */
+}
+
+/**************************************
+ * HEADER
+ **************************************/
+header {
+    background: var(--bg-white); /* White background */
+    color: var(--text-dark); /* Dark text */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav button {
+    background: var(--primary); /* Deep navy blue */
+    color: var(--text-light); /* White text */
+}
+
+nav button:hover {
+    background: var(--primary-dark); /* Darker navy blue */
+}
+
+/**************************************
+ * DROPDOWN
+ **************************************/
+.dropbtn {
+    background: var(--secondary); /* Light navy highlight */
+    color: var(--text-light); /* White text */
+}
+
+.dropbtn:hover {
+    background: #0086AA; /* Highlighted blue from PDF */
+}
+
+.dropdown-content {
+    background: var(--bg-white); /* White background */
+}
+
+.dropdown-content a:hover {
+    background-color: var(--bg-light); /* Off white */
+}
+
+/**************************************
+ * HOME PAGE BOXES
+ **************************************/
+.home-box {
+    border-color: var(--border-gray); /* Yellow gray */
+}
+
+.home-box:hover {
+    background: var(--bg-light); /* Off white */
+    border-color: var(--secondary); /* Light navy */
+}
+
+.home-box-title {
+    color: var(--primary); /* Deep navy blue */
+}
+
+.home-box p {
+    color: var(--text-dark); /* Dark text */
+}
+
+/**************************************
+ * FOOTER
+ **************************************/
+footer {
+    background: var(--bg-white); /* White background */
+    color: var(--text-dark); /* Dark text */
+}
