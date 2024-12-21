@@ -510,23 +510,6 @@
     }
 </script>
   
-    const VALID_USERNAME = "admin";
-    const VALID_PASSWORD = "password";
-
-    function loginUser() {
-      const user = document.getElementById("username").value;
-      const pass = document.getElementById("password").value;
-      const loginMsg = document.getElementById("loginMessage");
-
-      if (user === VALID_USERNAME && pass === VALID_PASSWORD) {
-        // Hide login, show main wrapper
-        document.getElementById("loginSection").style.display = "none";
-        document.getElementById("mainWrapper").style.display = "flex";
-      } else {
-        loginMsg.textContent = "Invalid credentials. Try 'admin' / 'password'.";
-      }
-      return false; // Prevent form submission refresh
-    }
 
     /************************************************************
      * 2) Navigation: Show/Hide Sections
